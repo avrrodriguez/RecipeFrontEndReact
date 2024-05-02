@@ -1,7 +1,16 @@
+import "./Header.css"
+
 export function Header() {
-    <header>
-        <nav>
-            <a href="#">Home</a> | <a href="#">Link</a>
-        </nav>
-    </header>
+    return (
+        <header>
+            <div>
+                <nav>
+                    <a href="#">Home</a> | <a href="#">Link</a>
+                </nav>
+            </div>
+            <div class="main-headline-div">
+                <h1>Main Site Headline</h1>
+            </div>
+        </header>
+    )
 }
