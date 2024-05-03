@@ -1,15 +1,13 @@
 import "./Header.css"
+import { PageHeading } from "./PageHeading"
 
 export function Header() {
     return (
         <header>
-            <div>
+            <div className="top-bar-header">
                 <nav>
-                    <a href="#">Home</a> | <a href="#">Link</a>
+                    <a href="/">Home</a> | <a href="/about">About</a>
                 </nav>
-            </div>
-            <div class="main-headline-div">
-                <h1>Main Site Headline</h1>
             </div>
         </header>
     )

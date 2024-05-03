@@ -1,0 +1,16 @@
+@import url(../SiteColors.css);
+
+.top-bar-header {
+    padding: 15px;
+}
+
+.main-heading-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-site-color);
+}
+
+h1 {
+    color: var(--primary-site-color);
+}
