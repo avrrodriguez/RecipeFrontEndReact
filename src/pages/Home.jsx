@@ -1,8 +1,8 @@
-import { PageHeading } from "../components/PageHeading"
+import "./Home.css"
 
 export function Home() {
     return (
-        <div>
+        <div className="home-page">
             <h2>Welcome to React!</h2>
         </div>
     )

@@ -1,5 +1,4 @@
 import "./Header.css"
-import { PageHeading } from "./PageHeading"
 
 export function Header() {
     return (
