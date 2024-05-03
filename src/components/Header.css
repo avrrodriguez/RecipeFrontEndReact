@@ -1,6 +1,10 @@
 @import url(../SiteColors.css);
 
-.main-headline-div {
+.top-bar-header {
+    padding: 15px;
+}
+
+.main-heading-div {
     width: 100%;
     display: flex;
     justify-content: center;

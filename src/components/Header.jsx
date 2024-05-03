@@ -3,13 +3,13 @@ import "./Header.css"
 export function Header() {
     return (
         <header>
-            <div>
+            <div className="top-bar-header">
                 <nav>
                     <a href="#">Home</a> | <a href="#">Link</a>
                 </nav>
             </div>
-            <div class="main-headline-div">
-                <h1>Main Site Headline</h1>
+            <div className="main-heading-div">
+                <h1>Main Site heading</h1>
             </div>
         </header>
     )
