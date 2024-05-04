@@ -21,6 +21,15 @@
     border: solid;
     border-width: 1px;
     border-radius: 0.35em;
+    cursor: pointer;
+}
+
+.active-category {
+    background-image: radial-gradient(ellipse, white 40%, #f2befc);
+}
+
+.inactive-category:hover {
+    background-image: radial-gradient(ellipse, white 65%, #ec8cff);
 }
 
 .search-forms {
