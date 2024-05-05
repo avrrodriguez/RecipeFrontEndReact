@@ -11,8 +11,8 @@ export function Home() {
         var searchFormDiv = document.getElementsByClassName("search-form-categories")[0].children;
         
         for (let i = 0; i < searchFormDiv.length; i++) {
-            searchFormDiv[i].className = searchFormDiv[i].innerHTML === event.target.innerHTML ? "active-category" : "inactive-category"
-;        }
+            searchFormDiv[i].className = searchFormDiv[i].innerHTML === event.target.innerHTML ? "active-category" : "inactive-category";
+        }
     }
 
 
@@ -28,14 +28,15 @@ export function Home() {
     return (
         <div className="home-page">
             <div className="form-container">
+                <div className="eating-cat-gif">
+                    <img src="src\assets\eating-cat.gif" alt="eating cat gif" style={{width:"150px"}}/>
+                </div>
                 <div className="search-form-categories">
                     <div className="active-category">Recipe Name</div>
                     <div className="inactive-category">Ingredients</div>
                     <div className="inactive-category">Cooking Time</div>
                 </div>
-                <div className="search-forms">
-                    <SearchForms activeForm={activeCategory}/>
-                </div>
+                <SearchForms activeForm={activeCategory}/>  
             </div>
         </div>
     )

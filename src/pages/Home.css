@@ -1,6 +1,5 @@
 .form-container {
     padding: 15px;
-    margin-top: -25px;
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -13,6 +12,12 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
+}
+
+@media screen and (max-width: 550px) {
+    .search-form-categories {
+        flex-direction: column;
+    }
 }
 
 .search-form-categories > div {
