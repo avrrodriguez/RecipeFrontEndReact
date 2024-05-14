@@ -1,9 +1,9 @@
 import { PageHeading } from "../components/PageHeading"
 
-export function About(props) {
+export function Search(props) {
     return (
         <div>
-            <PageHeading pageTitle="About Page"/>
+            <PageHeading pageTitle="Search Page"/>
             <h2>{props.pageTitle}</h2>
         </div>
     )
