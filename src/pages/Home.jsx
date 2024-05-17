@@ -15,7 +15,6 @@ export function Home() {
         }
     }
 
-
     function FormCategoriesEventListener() {
         var searchFormCategoriesDiv = document.getElementsByClassName("search-form-categories")[0].children;
         

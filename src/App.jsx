@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import './App.css';
 import { Home } from "./pages/Home";
-import { About } from './pages/About';
+import { Search } from './pages/Search';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <div className="page-container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About pageTitle="About Page" />} />
+            <Route path="/search" element={<Search pageTitle="Search" />} />
           </Routes>
         </div>
         <Footer />
