@@ -36,21 +36,3 @@
 .inactive-category:hover {
     background-image: radial-gradient(ellipse, white 65%, #ec8cff);
 }
-
-.search-forms {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-form {
-    width: 80%;
-    max-width: 700px;
-}
-
-input {
-    width: 100%;
-    height: 30px;
-    border-radius: 0.35em;
-    border-width: 1px;
-}
