@@ -18,9 +18,16 @@ export function SearchForms(props) {
   };
 
   const handleRecipeNameChange = (event) => {
+    setRecArray([]);
+    if (event.target.value.length === 0) {
+      return;
+    }
+
     var filteredList = SearchFormFilter(props.activeForm, event.target.value);
-    console.log(filteredList, "something");
-    setRecArray((recArray) => [...recArray, "something"]);
+
+    for (let i = 0; i < filteredList.length; i++) {
+      setRecArray((recArray) => [...recArray, filteredList[i]]);
+    }
   };
 
   function searchFormsSwitch() {
