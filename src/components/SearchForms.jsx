@@ -1,7 +1,5 @@
-import { cookingTimeFormSampleList } from "../../public/SearchFormSampleLists/CookingTimeFormSampleList";
-import { ingredientsSampleList } from "../../public/SearchFormSampleLists/IngredientsSampleList";
-import { recipeSearchFormSampleList } from "../../public/SearchFormSampleLists/RecipeSearchFormSampleList";
 import "./SearchForms.css";
+import { SearchFormFilter } from "./SearchFormFilter";
 import { useState } from "react";
 
 export function SearchForms(props) {
@@ -20,8 +18,9 @@ export function SearchForms(props) {
   };
 
   const handleRecipeNameChange = (event) => {
-    console.log(event.target.value);
-    console.log(recArray);
+    var filteredList = SearchFormFilter(props.activeForm, event.target.value);
+    console.log(filteredList, "something");
+    setRecArray((recArray) => [...recArray, "something"]);
   };
 
   function searchFormsSwitch() {
@@ -56,7 +55,7 @@ export function SearchForms(props) {
       {searchFormsSwitch()}
       {recArray.length != 0 ? (
         <div className="search-form-list">
-          <p>{recArray[0]}</p>
+          <p>{recArray.length}</p>
         </div>
       ) : (
         <></>
