@@ -57,12 +57,21 @@ export function SearchForms(props) {
     }
   }
 
+  // list item attribute name is different depending on category
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
       {recArray.length != 0 ? (
-        <div className="search-form-list">
-          <p>{recArray.length}</p>
+        <div className="search-form-list-container">
+          <div className="search-form-list">
+            {recArray.map((item) => {
+              return (
+                <p key={item.recipeName} onClick={handleRecipeNameSubmit}>
+                  {item.recipeName}
+                </p>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <></>
