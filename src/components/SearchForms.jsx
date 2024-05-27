@@ -6,7 +6,9 @@ export function SearchForms(props) {
   const [recArray, setRecArray] = useState([]);
 
   const handleRecipeNameSubmit = (event) => {
+    event.preventDefault();
     console.log(event);
+    // window.location.href = "http://localhost:5173/search?searchItem=" + event.target.value;
   };
 
   const handleIngredientsSubmit = (event) => {
@@ -34,7 +36,7 @@ export function SearchForms(props) {
     switch (props.activeForm) {
       case "Recipe Name":
         return (
-          <form onSubmit={handleRecipeNameSubmit}>
+          <form action="/search">
             <input
               name="recipeNameInput"
               placeholder="Recipe Name Search"
