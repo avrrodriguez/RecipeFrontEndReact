@@ -1,7 +1,5 @@
-import { cookingTimeFormSampleList } from "../../public/SearchFormSampleLists/CookingTimeFormSampleList";
-import { ingredientsSampleList } from "../../public/SearchFormSampleLists/IngredientsSampleList";
-import { recipeSearchFormSampleList } from "../../public/SearchFormSampleLists/RecipeSearchFormSampleList";
 import "./SearchForms.css";
+import { SearchFormFilter } from "./SearchFormFilter";
 import { useState } from "react";
 
 export function SearchForms(props) {
@@ -20,8 +18,16 @@ export function SearchForms(props) {
   };
 
   const handleRecipeNameChange = (event) => {
-    console.log(event.target.value);
-    console.log(recArray);
+    setRecArray([]);
+    if (event.target.value.length === 0) {
+      return;
+    }
+
+    var filteredList = SearchFormFilter(props.activeForm, event.target.value);
+
+    for (let i = 0; i < filteredList.length; i++) {
+      setRecArray((recArray) => [...recArray, filteredList[i]]);
+    }
   };
 
   function searchFormsSwitch() {
@@ -51,12 +57,21 @@ export function SearchForms(props) {
     }
   }
 
+  // list item attribute name is different depending on category
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
       {recArray.length != 0 ? (
-        <div className="search-form-list">
-          <p>{recArray[0]}</p>
+        <div className="search-form-list-container">
+          <div className="search-form-list">
+            {recArray.map((item) => {
+              return (
+                <p key={item.recipeName} onClick={handleRecipeNameSubmit}>
+                  {item.recipeName}
+                </p>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <></>
