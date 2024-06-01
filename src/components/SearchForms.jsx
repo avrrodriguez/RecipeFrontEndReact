@@ -38,22 +38,23 @@ export function SearchForms(props) {
         return (
           <form action="/search">
             <input
-              name="recipeNameInput"
+              name="searchFormValue"
               placeholder="Recipe Name Search"
               onChange={(event) => handleRecipeNameChange(event)}
             />
+            <input type="hidden" name="searchFormCategory" value="Recipe Name" />
           </form>
         );
       case "Ingredients":
         return (
           <form onSubmit={handleIngredientsSubmit}>
-            <input name="ingredientsInput" placeholder="Ingredients Search" />
+            <input name="searchForm" placeholder="Ingredients Search" />
           </form>
         );
       case "Cooking Time":
         return (
           <form onSubmit={handleCookingTimeSubmit}>
-            <input name="cookingTimeInput" placeholder="Cooking Time Search" />
+            <input name="searchForm" placeholder="Cooking Time Search" />
           </form>
         );
     }
