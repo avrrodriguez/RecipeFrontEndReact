@@ -7,13 +7,22 @@ export function Search() {
   const [searchFormCategory, setSearchFormCategory] = useState(searchParams.get("searchFormCategory"));
   const [searchFormValue, setSearchFormValue] = useState(searchParams.get("searchFormValue"));
 
-  console.log(searchFormCategory, searchFormValue);
-
   function setSearchFormSelectDefault() {
     var selectElement = document.getElementsByName("categories");
-    console.log("Select Element", selectElement[0].options[1]);
-    selectElement[0].options[1].selected = true;
-    selectElement[0].options[1].defaultSelected = true;
+    var searchFormCategoryNumber;
+
+    if (searchFormCategory == "Recipe Name") {
+      searchFormCategoryNumber = 0;
+    } else if (searchFormCategory == "Ingredients") {
+      searchFormCategoryNumber = 1;
+    } else {
+      searchFormCategoryNumber = 2;
+    }
+
+    selectElement[0].options[searchFormCategoryNumber].selected = true;
+    selectElement[0].options[searchFormCategoryNumber].defaultSelected = true;
+
+    var inputElement = document.getElementsByName("");
   }
 
   function searchFormsSwitch() {
@@ -25,19 +34,28 @@ export function Search() {
               name="recipeNameInput"
               placeholder="Recipe Name Search"
               onChange={(event) => handleRecipeNameChange(event)}
+              value={searchFormCategory === "Recipe Name" ? searchFormValue : ""}
             />
           </form>
         );
-      case "Ingredient":
+      case "Ingredients":
         return (
           <form>
-            <input name="ingredientsInput" placeholder="Ingredients Search" />
+            <input
+              name="ingredientsInput"
+              placeholder="Ingredients Search"
+              value={searchFormCategory === "Ingredients" ? searchFormValue : ""}
+            />
           </form>
         );
       case "Cooking Time":
         return (
           <form>
-            <input name="cookingTimeInput" placeholder="Cooking Time Search" />
+            <input
+              name="cookingTimeInput"
+              placeholder="Cooking Time Search"
+              value={searchFormCategory === "Cooking Time" ? searchFormValue : ""}
+            />
           </form>
         );
     }
@@ -55,9 +73,9 @@ export function Search() {
             id="category-select"
             onChange={(event) => setSearchFormCategory(event.target.value)}
           >
-            <option value="Recipe Name">Recipe Name</option>
-            <option value="Ingredient">Ingredient</option>
-            <option value="Cooking Time">Cooking Time</option>
+            <option value="Recipe Name">Search Recipe Name</option>
+            <option value="Ingredients">Search Ingredient</option>
+            <option value="Cooking Time">Search Cooking Time</option>
           </select>
         </div>
       </div>

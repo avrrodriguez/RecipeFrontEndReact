@@ -47,14 +47,16 @@ export function SearchForms(props) {
         );
       case "Ingredients":
         return (
-          <form onSubmit={handleIngredientsSubmit}>
+          <form action="/search " onSubmit={handleIngredientsSubmit}>
             <input name="searchForm" placeholder="Ingredients Search" />
+            <input type="hidden" name="searchFormCategory" value="Ingredients" />
           </form>
         );
       case "Cooking Time":
         return (
-          <form onSubmit={handleCookingTimeSubmit}>
+          <form action="/search" onSubmit={handleCookingTimeSubmit}>
             <input name="searchForm" placeholder="Cooking Time Search" />
+            <input type="hidden" name="searchFormCategory" value="Cooking Time" />
           </form>
         );
     }
