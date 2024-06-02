@@ -4,24 +4,19 @@ import { useState } from "react";
 
 export function SearchForms(props) {
   const [recArray, setRecArray] = useState([]);
+  const [formInputNotEmpty, setFormInputNotEmpty] = useState(false);
 
-  const handleRecipeNameSubmit = (event) => {
+  const handleSearchSuggestionClick = (event) => {
     event.preventDefault();
-    console.log(event);
+    console.log("click");
     // window.location.href = "http://localhost:5173/search?searchItem=" + event.target.value;
   };
 
-  const handleIngredientsSubmit = (event) => {
-    console.log(event);
-  };
-
-  const handleCookingTimeSubmit = (event) => {
-    console.log(event);
-  };
-
-  const handleRecipeNameChange = (event) => {
+  const handleSearchInputChange = (event) => {
+    setFormInputNotEmpty(true);
     setRecArray([]);
     if (event.target.value.length === 0) {
+      setFormInputNotEmpty(true);
       return;
     }
 
@@ -38,24 +33,32 @@ export function SearchForms(props) {
         return (
           <form action="/search">
             <input
-              name="searchFormValue"
+              name="searchForm"
               placeholder="Recipe Name Search"
-              onChange={(event) => handleRecipeNameChange(event)}
+              onChange={(event) => handleSearchInputChange(event)}
             />
             <input type="hidden" name="searchFormCategory" value="Recipe Name" />
           </form>
         );
       case "Ingredients":
         return (
-          <form action="/search " onSubmit={handleIngredientsSubmit}>
-            <input name="searchForm" placeholder="Ingredients Search" />
+          <form action="/search ">
+            <input
+              name="searchForm"
+              placeholder="Ingredients Search"
+              onChange={(event) => handleSearchInputChange(event)}
+            />
             <input type="hidden" name="searchFormCategory" value="Ingredients" />
           </form>
         );
       case "Cooking Time":
         return (
-          <form action="/search" onSubmit={handleCookingTimeSubmit}>
-            <input name="searchForm" placeholder="Cooking Time Search" />
+          <form action="/search">
+            <input
+              name="searchForm"
+              placeholder="Cooking Time Search"
+              onChange={(event) => handleSearchInputChange(event)}
+            />
             <input type="hidden" name="searchFormCategory" value="Cooking Time" />
           </form>
         );
@@ -66,15 +69,30 @@ export function SearchForms(props) {
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
-      {recArray.length != 0 ? (
+      {recArray.length != 0 && formInputNotEmpty ? (
         <div className="search-form-list-container">
           <div className="search-form-list">
             {recArray.map((item) => {
-              return (
-                <p key={item.recipeName} onClick={handleRecipeNameSubmit}>
-                  {item.recipeName}
-                </p>
-              );
+              switch (props.activeForm) {
+                case "Recipe Name":
+                  return (
+                    <p key={item.id} onClick={handleSearchSuggestionClick}>
+                      {item.recipeName}
+                    </p>
+                  );
+                case "Ingredients":
+                  return (
+                    <p key={item.id} onClick={handleSearchSuggestionClick}>
+                      {item.ingredientName}
+                    </p>
+                  );
+                case "Cooking Time":
+                  return (
+                    <p key={item.id} onClick={handleSearchSuggestionClick}>
+                      {item.cookingStyleName}
+                    </p>
+                  );
+              }
             })}
           </div>
         </div>
