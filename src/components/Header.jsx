@@ -1,13 +1,13 @@
-import "./Header.css"
+import "./Header.css";
 
 export function Header() {
-    return (
-        <header>
-            <div className="top-bar-header">
-                <nav>
-                    <a href="/">Home</a> | <a href="/about">About</a>
-                </nav>
-            </div>
-        </header>
-    )
+  return (
+    <header>
+      <div className="top-bar-header">
+        <nav>
+          <a href="/">Home</a>
+        </nav>
+      </div>
+    </header>
+  );
 }
