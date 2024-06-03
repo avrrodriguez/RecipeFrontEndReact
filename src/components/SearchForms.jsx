@@ -1,10 +1,9 @@
 import "./SearchForms.css";
 import { SearchFormFilter } from "./SearchFormFilter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function SearchForms(props) {
   const [recArray, setRecArray] = useState([]);
-  const [formInputNotEmpty, setFormInputNotEmpty] = useState(false);
 
   const handleSearchSuggestionClick = (event) => {
     event.preventDefault();
@@ -13,14 +12,12 @@ export function SearchForms(props) {
   };
 
   const handleSearchInputChange = (event) => {
-    setFormInputNotEmpty(true);
     setRecArray([]);
-    if (event.target.value.length === 0) {
-      setFormInputNotEmpty(true);
+    if (event.length === 0) {
       return;
     }
 
-    var filteredList = SearchFormFilter(props.activeForm, event.target.value);
+    var filteredList = SearchFormFilter(props.activeForm, event);
 
     for (let i = 0; i < filteredList.length; i++) {
       setRecArray((recArray) => [...recArray, filteredList[i]]);
@@ -35,7 +32,7 @@ export function SearchForms(props) {
             <input
               name="searchForm"
               placeholder="Recipe Name Search"
-              onChange={(event) => handleSearchInputChange(event)}
+              onChange={(event) => handleSearchInputChange(event.target.value)}
             />
             <input type="hidden" name="searchFormCategory" value="Recipe Name" />
           </form>
@@ -46,7 +43,7 @@ export function SearchForms(props) {
             <input
               name="searchForm"
               placeholder="Ingredients Search"
-              onChange={(event) => handleSearchInputChange(event)}
+              onChange={(event) => handleSearchInputChange(event.target.value)}
             />
             <input type="hidden" name="searchFormCategory" value="Ingredients" />
           </form>
@@ -57,7 +54,7 @@ export function SearchForms(props) {
             <input
               name="searchForm"
               placeholder="Cooking Time Search"
-              onChange={(event) => handleSearchInputChange(event)}
+              onChange={(event) => handleSearchInputChange(event.target.value)}
             />
             <input type="hidden" name="searchFormCategory" value="Cooking Time" />
           </form>
@@ -69,7 +66,7 @@ export function SearchForms(props) {
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
-      {recArray.length != 0 && formInputNotEmpty ? (
+      {recArray.length != 0 && document.getElementsByName("searchForm")[0]?.value.length > 0 ? (
         <div className="search-form-list-container">
           <div className="search-form-list">
             {recArray.map((item) => {
