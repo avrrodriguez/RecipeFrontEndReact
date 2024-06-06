@@ -1,6 +1,6 @@
 import "./SearchForms.css";
-import { SearchFormFilter } from "./SearchFormFilter";
-import { useState, useEffect } from "react";
+import { SearchFormFilter } from "../../helpers/SearchFormFilter";
+import { useState } from "react";
 
 export function SearchForms(props) {
   const [recArray, setRecArray] = useState([]);
@@ -30,7 +30,7 @@ export function SearchForms(props) {
         return (
           <form action="/search">
             <input
-              name="searchForm"
+              name="searchFormValue"
               placeholder="Recipe Name Search"
               onChange={(event) => handleSearchInputChange(event.target.value)}
             />
@@ -41,7 +41,7 @@ export function SearchForms(props) {
         return (
           <form action="/search ">
             <input
-              name="searchForm"
+              name="searchFormValue"
               placeholder="Ingredients Search"
               onChange={(event) => handleSearchInputChange(event.target.value)}
             />
@@ -52,7 +52,7 @@ export function SearchForms(props) {
         return (
           <form action="/search">
             <input
-              name="searchForm"
+              name="searchFormValue"
               placeholder="Cooking Time Search"
               onChange={(event) => handleSearchInputChange(event.target.value)}
             />
@@ -66,7 +66,7 @@ export function SearchForms(props) {
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
-      {recArray.length != 0 && document.getElementsByName("searchForm")[0]?.value.length > 0 ? (
+      {recArray.length != 0 && document.getElementsByName("searchFormValue")[0]?.value.length > 0 ? (
         <div className="search-form-list-container">
           <div className="search-form-list">
             {recArray.map((item) => {
