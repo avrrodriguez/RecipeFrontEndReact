@@ -2,7 +2,7 @@ import "./Search.css";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export function Search() {
+export function Search(props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchFormCategory, setSearchFormCategory] = useState(searchParams.get("searchFormCategory"));
   const [searchFormValue, setSearchFormValue] = useState(searchParams.get("searchFormValue"));
@@ -21,19 +21,19 @@ export function Search() {
 
     selectElement[0].options[searchFormCategoryNumber].selected = true;
     selectElement[0].options[searchFormCategoryNumber].defaultSelected = true;
-
-    var inputElement = document.getElementsByName("");
   }
 
   function searchFormsSwitch() {
+    var searchInput = document.getElementsByName("searchFormValue").value;
+    console.log(searchInput);
     switch (searchFormCategory) {
       case "Recipe Name":
         return (
           <form action="/search">
             <input
-              name="recipeNameInput"
+              name="searchFormValue"
               placeholder="Recipe Name Search"
-              onChange={(event) => handleRecipeNameChange(event)}
+              onChange={(event) => handleSearchInputChange(event)}
               value={searchFormCategory === "Recipe Name" ? searchFormValue : ""}
             />
           </form>
@@ -42,8 +42,9 @@ export function Search() {
         return (
           <form>
             <input
-              name="ingredientsInput"
+              name="searchFormValue"
               placeholder="Ingredients Search"
+              onChange={(event) => handleSearchInputChange(event)}
               value={searchFormCategory === "Ingredients" ? searchFormValue : ""}
             />
           </form>
@@ -52,8 +53,9 @@ export function Search() {
         return (
           <form>
             <input
-              name="cookingTimeInput"
+              name="searchFormValue"
               placeholder="Cooking Time Search"
+              onChange={(event) => handleSearchInputChange(event)}
               value={searchFormCategory === "Cooking Time" ? searchFormValue : ""}
             />
           </form>

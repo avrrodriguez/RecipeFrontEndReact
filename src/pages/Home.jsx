@@ -1,5 +1,5 @@
 import "./Home.css";
-import { SearchForms } from "../components/SearchForms";
+import { SearchForms } from "../components/SearchForm/SearchForms";
 import { useEffect, useState } from "react";
 
 export function Home() {
@@ -10,13 +10,13 @@ export function Home() {
 
     var searchFormDiv = document.getElementsByClassName("search-form-categories")[0].children;
 
-    // reset value of input when changing categories
-    document.getElementsByName("searchForm")[0].value = "";
-
     for (let i = 0; i < searchFormDiv.length; i++) {
       searchFormDiv[i].className =
         searchFormDiv[i].innerHTML === event.target.innerHTML ? "active-category" : "inactive-category";
     }
+
+    // reset value of input when changing categories
+    document.getElementsByName("searchFormValue")[0].value = "";
   }
 
   function FormCategoriesEventListener() {
