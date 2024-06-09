@@ -1,5 +1,6 @@
 import "./SearchForms.css";
 import { SearchFormFilter } from "../../helpers/SearchFormFilter";
+import { SearchFormRecs } from "./SearchFormRecs";
 import { useState } from "react";
 
 export function SearchForms(props) {
@@ -66,36 +67,7 @@ export function SearchForms(props) {
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
-      {recArray.length != 0 && document.getElementsByName("searchFormValue")[0]?.value.length > 0 ? (
-        <div className="search-form-list-container">
-          <div className="search-form-list">
-            {recArray.map((item) => {
-              switch (props.activeForm) {
-                case "Recipe Name":
-                  return (
-                    <p key={item.id} onClick={handleSearchSuggestionClick}>
-                      {item.recipeName}
-                    </p>
-                  );
-                case "Ingredients":
-                  return (
-                    <p key={item.id} onClick={handleSearchSuggestionClick}>
-                      {item.ingredientName}
-                    </p>
-                  );
-                case "Cooking Time":
-                  return (
-                    <p key={item.id} onClick={handleSearchSuggestionClick}>
-                      {item.cookingStyleName}
-                    </p>
-                  );
-              }
-            })}
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
+      {SearchFormRecs((recommendations = recArray))}
     </div>
   );
 }
