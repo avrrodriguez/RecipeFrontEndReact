@@ -7,13 +7,19 @@ export function SearchFormFilter(category, searchInput) {
 
   switch (category) {
     case "Recipe Name":
-      filteredList = recipeSearchFormSampleList.filter((sample) => sample.recipeName.includes(searchInput));
+      filteredList = recipeSearchFormSampleList
+        .filter((sample) => sample.recipeName.includes(searchInput))
+        .map((sample) => sample.recipeName);
       break;
     case "Ingredients":
-      filteredList = ingredientsSampleList.filter((sample) => sample.ingredientName.includes(searchInput));
+      filteredList = ingredientsSampleList
+        .filter((sample) => sample.ingredientName.includes(searchInput))
+        .map((sample) => sample.ingredientName);
       break;
     case "Cooking Time":
-      filteredList = cookingTimeFormSampleList.filter((sample) => sample.cookingStyleName.includes(searchInput));
+      filteredList = cookingTimeFormSampleList
+        .filter((sample) => sample.cookingStyleName.includes(searchInput))
+        .map((sample) => sample.cookingStyleName);
       break;
   }
 
