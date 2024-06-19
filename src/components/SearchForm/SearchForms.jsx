@@ -2,9 +2,9 @@ import "./SearchForms.css";
 import { SearchFormFilter } from "../../helpers/SearchFormFilter";
 import { SearchFormRecs } from "./SearchFormRecs";
 import { useState } from "react";
+import { RecipeSearchForm } from "./RecipeSearchForm";
 
 export function SearchForms(props) {
-  const [recArray, setRecArray] = useState([]);
 
   const handleSearchSuggestionClick = (event) => {
     event.preventDefault();
@@ -12,31 +12,11 @@ export function SearchForms(props) {
     // window.location.href = "http://localhost:5173/search?searchItem=" + event.target.value;
   };
 
-  const handleSearchInputChange = (event) => {
-    setRecArray([]);
-    if (event.length === 0) {
-      return;
-    }
-
-    var filteredList = SearchFormFilter(props.activeForm, event);
-
-    for (let i = 0; i < filteredList.length; i++) {
-      setRecArray((recArray) => [...recArray, filteredList[i]]);
-    }
-  };
-
   function searchFormsSwitch() {
     switch (props.activeForm) {
       case "Recipe Name":
         return (
-          <form action="/search">
-            <input
-              name="searchFormValue"
-              placeholder="Recipe Name Search"
-              onChange={(event) => handleSearchInputChange(event.target.value)}
-            />
-            <input type="hidden" name="searchFormCategory" value="Recipe Name" />
-          </form>
+          <RecipeSearchForm />
         );
       case "Ingredients":
         return (
@@ -67,7 +47,6 @@ export function SearchForms(props) {
   return (
     <div className="search-forms">
       {searchFormsSwitch()}
-      {SearchFormRecs((recommendations = recArray))}
     </div>
   );
 }
