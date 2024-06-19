@@ -1,6 +1,7 @@
 import "./Search.css";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { SearchForms } from "../components/SearchForm/SearchForms";
 
 export function Search(props) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,52 +24,14 @@ export function Search(props) {
     selectElement[0].options[searchFormCategoryNumber].defaultSelected = true;
   }
 
-  function searchFormsSwitch() {
-    var searchInput = document.getElementsByName("searchFormValue").value;
-    console.log(searchInput);
-    switch (searchFormCategory) {
-      case "Recipe Name":
-        return (
-          <form action="/search">
-            <input
-              name="searchFormValue"
-              placeholder="Recipe Name Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Recipe Name" ? searchFormValue : ""}
-            />
-          </form>
-        );
-      case "Ingredients":
-        return (
-          <form>
-            <input
-              name="searchFormValue"
-              placeholder="Ingredients Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Ingredients" ? searchFormValue : ""}
-            />
-          </form>
-        );
-      case "Cooking Time":
-        return (
-          <form>
-            <input
-              name="searchFormValue"
-              placeholder="Cooking Time Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Cooking Time" ? searchFormValue : ""}
-            />
-          </form>
-        );
-    }
-  }
-
   useEffect(setSearchFormSelectDefault, []);
 
   return (
     <div>
       <div className="search-form-container">
-        <div className="search-page-form">{searchFormsSwitch()}</div>
+        <div className="search-page-form">
+          <SearchForms activeForm={searchFormCategory}/>
+        </div>
         <div className="search-page-categories">
           <select
             name="categories"

@@ -14,7 +14,7 @@ export function RecipeSearchForm() {
         />
         <input type="hidden" name="searchFormCategory" value="Recipe Name" />
       </form>
-      {SearchFormRecs(category="Recipe Name", searchInput=formInput)}
+      <SearchFormRecs category="Recipe Name" searchInput={formInput} />
     </div>
   );
 }
