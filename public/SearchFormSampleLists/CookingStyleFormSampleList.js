@@ -1,4 +1,4 @@
-var cookingTimeFormSampleList = [
+var cookingStyleFormSampleList = [
   {
     id: 0,
     cookingStyleName: "stir fry",
@@ -26,4 +26,4 @@ var cookingTimeFormSampleList = [
   },
 ];
 
-export { cookingTimeFormSampleList };
+export { cookingStyleFormSampleList };

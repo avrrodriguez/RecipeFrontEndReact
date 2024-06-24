@@ -23,7 +23,7 @@ export function SearchFormRecs(props) {
     }
   }
   
-  useEffect(handleSearchInputChange() , [props.searchInput])
+  useEffect(() => {handleSearchInputChange()} , [props.searchInput])
 
   return (
     <div className="search-form-list-container">
@@ -31,7 +31,7 @@ export function SearchFormRecs(props) {
         <div className="search-form-list">
           {recArray.map((item) => {
             return (
-              <p key={item} onClick={handleSearchSuggestionClick}>
+              <p key={item} onClick={(event)=>handleSearchSuggestionClick(event)}>
                 {item}
               </p>
             );

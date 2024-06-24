@@ -1,5 +1,5 @@
 import { recipeSearchFormSampleList } from "../../public/SearchFormSampleLists/RecipeSearchFormSampleList";
-import { cookingTimeFormSampleList } from "../../public/SearchFormSampleLists/CookingTimeFormSampleList";
+import { cookingStyleFormSampleList } from "../../public/SearchFormSampleLists/CookingStyleFormSampleList";
 import { ingredientsSampleList } from "../../public/SearchFormSampleLists/IngredientsSampleList";
 
 export function SearchFormFilter(category, searchInput) {
@@ -16,8 +16,8 @@ export function SearchFormFilter(category, searchInput) {
         .filter((sample) => sample.ingredientName.includes(searchInput))
         .map((sample) => sample.ingredientName);
       break;
-    case "Cooking Time":
-      filteredList = cookingTimeFormSampleList
+    case "Cooking Style":
+      filteredList = cookingStyleFormSampleList
         .filter((sample) => sample.cookingStyleName.includes(searchInput))
         .map((sample) => sample.cookingStyleName);
       break;

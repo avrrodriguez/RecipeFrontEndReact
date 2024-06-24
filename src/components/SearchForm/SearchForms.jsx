@@ -3,6 +3,8 @@ import { SearchFormFilter } from "../../helpers/SearchFormFilter";
 import { SearchFormRecs } from "./SearchFormRecs";
 import { useState } from "react";
 import { RecipeSearchForm } from "./RecipeSearchForm";
+import { CookingStyleSearchForm } from "./CookingStyleSearchForm";
+import { IngredientSearchForm } from "./IngredientSearchForm";
 
 export function SearchForms(props) {
 
@@ -16,29 +18,15 @@ export function SearchForms(props) {
     switch (props.activeForm) {
       case "Recipe Name":
         return (
-          <RecipeSearchForm />
+          <RecipeSearchForm searchValue={props.searchValue}/>
         );
       case "Ingredients":
         return (
-          <form action="/search ">
-            <input
-              name="searchFormValue"
-              placeholder="Ingredients Search"
-              onChange={(event) => handleSearchInputChange(event.target.value)}
-            />
-            <input type="hidden" name="searchFormCategory" value="Ingredients" />
-          </form>
+          <IngredientSearchForm searchValue={props.searchValue} />
         );
-      case "Cooking Time":
+      case "Cooking Style":
         return (
-          <form action="/search">
-            <input
-              name="searchFormValue"
-              placeholder="Cooking Time Search"
-              onChange={(event) => handleSearchInputChange(event.target.value)}
-            />
-            <input type="hidden" name="searchFormCategory" value="Cooking Time" />
-          </form>
+          <CookingStyleSearchForm searchValue={props.searchValue} />
         );
     }
   }

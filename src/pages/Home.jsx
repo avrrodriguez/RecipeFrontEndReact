@@ -37,7 +37,7 @@ export function Home() {
         <div className="search-form-categories">
           <div className="active-category">Recipe Name</div>
           <div className="inactive-category">Ingredients</div>
-          <div className="inactive-category">Cooking Time</div>
+          <div className="inactive-category">Cooking Style</div>
         </div>
         <SearchForms activeForm={activeCategory} />
       </div>
