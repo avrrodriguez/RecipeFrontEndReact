@@ -1,11 +1,12 @@
 import "./Search.css";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { SearchForms } from "../components/SearchForm/SearchForms";
 
-export function Search(props) {
+export function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchFormCategory, setSearchFormCategory] = useState(searchParams.get("searchFormCategory"));
-  const [searchFormValue, setSearchFormValue] = useState(searchParams.get("searchFormValue"));
+  const [searchFormCategory, setSearchFormCategory] = useState(searchParams.get("searchFormCategory") ? searchParams.get("searchFormCategory") : "Recipe Name");
+  const [searchFormValue, setSearchFormValue] = useState(searchParams.get("searchFormValue") ? searchParams.get("searchFormValue") : "");
 
   function setSearchFormSelectDefault() {
     var selectElement = document.getElementsByName("categories");
@@ -23,52 +24,15 @@ export function Search(props) {
     selectElement[0].options[searchFormCategoryNumber].defaultSelected = true;
   }
 
-  function searchFormsSwitch() {
-    var searchInput = document.getElementsByName("searchFormValue").value;
-    console.log(searchInput);
-    switch (searchFormCategory) {
-      case "Recipe Name":
-        return (
-          <form action="/search">
-            <input
-              name="searchFormValue"
-              placeholder="Recipe Name Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Recipe Name" ? searchFormValue : ""}
-            />
-          </form>
-        );
-      case "Ingredients":
-        return (
-          <form>
-            <input
-              name="searchFormValue"
-              placeholder="Ingredients Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Ingredients" ? searchFormValue : ""}
-            />
-          </form>
-        );
-      case "Cooking Time":
-        return (
-          <form>
-            <input
-              name="searchFormValue"
-              placeholder="Cooking Time Search"
-              onChange={(event) => handleSearchInputChange(event)}
-              value={searchFormCategory === "Cooking Time" ? searchFormValue : ""}
-            />
-          </form>
-        );
-    }
-  }
-
+  // change in dropdown selection doesnt work anymore due to removal of formswitch function
   useEffect(setSearchFormSelectDefault, []);
 
   return (
     <div>
       <div className="search-form-container">
-        <div className="search-page-form">{searchFormsSwitch()}</div>
+        <div className="search-page-form">
+          <SearchForms activeForm={searchFormCategory} searchValue={searchFormValue}/>
+        </div>
         <div className="search-page-categories">
           <select
             name="categories"
@@ -77,7 +41,7 @@ export function Search(props) {
           >
             <option value="Recipe Name">Search Recipe Name</option>
             <option value="Ingredients">Search Ingredient</option>
-            <option value="Cooking Time">Search Cooking Time</option>
+            <option value="Cooking Style">Search Cooking Style</option>
           </select>
         </div>
       </div>
