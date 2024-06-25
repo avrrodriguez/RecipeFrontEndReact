@@ -10,7 +10,7 @@ export function IngredientSearchForm(props) {
         <input
           name="searchFormValue"
           placeholder="Ingredients Search"
-          onChange={(event) => handleSearchInputChange(event.target.value)}
+          onChange={(event) => setFormInput(formInput => [...formInput, event.target.value] )}
           value={props.searchValue ? props.searchValue : ""}
         />
         <input type="hidden" name="searchFormCategory" value="Ingredients" />

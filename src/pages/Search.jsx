@@ -30,9 +30,7 @@ export function Search() {
   return (
     <div>
       <div className="search-form-container">
-        <div className="search-page-form">
-          <SearchForms activeForm={searchFormCategory} searchValue={searchFormValue}/>
-        </div>
+        <SearchForms activeForm={searchFormCategory} searchValue={searchFormValue}/>
         <div className="search-page-categories">
           <select
             name="categories"

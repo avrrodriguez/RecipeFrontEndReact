@@ -10,7 +10,7 @@ export function CookingStyleSearchForm(props) {
         <input
           name="searchFormValue"
           placeholder="Cooking Style Search"
-          onChange={(event) => handleSearchInputChange(event.target.value)}
+          onChange={(event) => setFormInput(formInput => [...formInput, event.target.value] )}
           value={props.searchValue ? props.searchValue : ""}
         />
         <input type="hidden" name="searchFormCategory" value="Cooking Style" />
