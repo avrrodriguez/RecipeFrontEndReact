@@ -6,12 +6,13 @@ export function SearchFormRecs(props) {
 
   const handleSearchSuggestionClick = (event) => {
     event.preventDefault();
-    console.log("click");
-    // window.location.href = "http://localhost:5173/search?searchItem=" + event.target.value;
+    const searchFormInput = document.getElementsByName("searchFormValue")[0];
+    setRecArray([]);
+    searchFormInput.value = event.target.innerHTML;
+    document.getElementById("searchForm").submit();
   };
 
   function handleSearchInputChange() {
-    console.log("change", recArray, props.category, props.searchInput);
     setRecArray([]);
     if (props.searchInput.length === 0) {
       return;
