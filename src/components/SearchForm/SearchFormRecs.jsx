@@ -11,6 +11,7 @@ export function SearchFormRecs(props) {
   };
 
   function handleSearchInputChange() {
+    console.log("change", recArray, props.category, props.searchInput);
     setRecArray([]);
     if (props.searchInput.length === 0) {
       return;
