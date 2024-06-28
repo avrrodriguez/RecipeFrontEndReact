@@ -1,10 +1,16 @@
+.search-form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.search-page-categories {
+  margin-left: 20px;
+}
+
 .search-forms {
   width: 80%;
   max-width: 700px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 50px;
 }
 
 form {
