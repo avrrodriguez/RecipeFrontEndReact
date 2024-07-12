@@ -1,0 +1,13 @@
+.searched-items-display {
+    margin-top: 20px;
+}
+
+.searched-items-display > div {
+    display: grid;
+    gap: 15px;
+}
+
+.searched-items-display > div > div {
+    display: grid;
+    gap: 5px;
+}
