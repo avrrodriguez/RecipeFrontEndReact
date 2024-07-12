@@ -1,4 +1,5 @@
 import { SearchFormFilter } from "../helpers/SearchFormFilter";
+import "./SearchItems.css";
 
 export function SearchedItems(props) {
     
@@ -7,7 +8,6 @@ export function SearchedItems(props) {
 
     function searchItemsListDisplay() {
         let searchedList = SearchFormFilter(searchItemsCategory, searchedValue);
-        console.log(searchedList);
 
         switch (searchItemsCategory) {
             case "Recipe Name":
@@ -55,8 +55,6 @@ export function SearchedItems(props) {
                 )
           }
     }
-    
-    //useEffect(searchItemsListDisplay, [searchedValue]);
 
     return (
         <div className="searched-items-display">
