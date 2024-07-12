@@ -21,7 +21,7 @@ export function SearchFormRecs(props) {
     var filteredList = SearchFormFilter(props.category, props.searchInput);
 
     for (let i = 0; i < filteredList.length; i++) {
-      setRecArray((recArray) => [...recArray, filteredList[i]]);
+      setRecArray((recArray) => [...recArray, filteredList[i].name]);
     }
   }
   

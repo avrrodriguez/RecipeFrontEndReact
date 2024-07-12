@@ -2,6 +2,7 @@ import "./Search.css";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SearchForms } from "../components/SearchForm/SearchForms";
+import { SearchedItems } from "../components/SearchedItems";
 
 export function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,8 +43,8 @@ export function Search() {
             <option value="Cooking Style">Search Cooking Style</option>
           </select>
         </div>
+        <SearchedItems searchedValue = {searchFormValue} searchItemsCategory = {searchFormCategory} />
       </div>
-      <div className="search-results-list"></div>
     </div>
   );
 }

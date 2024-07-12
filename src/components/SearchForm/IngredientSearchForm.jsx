@@ -14,7 +14,7 @@ export function IngredientSearchForm(props) {
 
   return (
     <div className="ingredients-search-form">
-      <form action="/search ">
+      <form id="searchForm" action="/search">
         <input
           name="searchFormValue"
           placeholder="Ingredients Search"

@@ -7,12 +7,6 @@ import { useState } from "react";
 export function SearchForms(props) {
   const [currActiveForm, setCurrActiveForm] = useState("");
 
-  const handleSearchSuggestionClick = (event) => {
-    event.preventDefault();
-    console.log("click");
-    // window.location.href = "http://localhost:5173/search?searchItem=" + event.target.value;
-  };
-
   function searchFormsSwitch() {
     let value;
     if (currActiveForm == "") {
@@ -25,8 +19,6 @@ export function SearchForms(props) {
         value = props.searchValue;
       }
     }
-
-    console.log(value, currActiveForm, props.activeForm);
 
     switch (props.activeForm) {
       case "Recipe Name":
