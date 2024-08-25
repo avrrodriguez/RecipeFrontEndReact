@@ -1,3 +1,19 @@
 header {
     background-color: white;
+    padding: 15px;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-right {
+    display: flex;
+    gap: 15px;
+}
+
+a.header-button {
+    padding: 5px 15px;
 }
