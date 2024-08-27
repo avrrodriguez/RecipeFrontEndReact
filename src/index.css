@@ -1,3 +1,5 @@
+@import url("./SiteColors.css");
+
 :root {
   --h1-font-size: clamp(2.5rem, 4vw, 5.5rem);
   --h2-font-size: clamp(2rem, 2.2vw, 3rem);
@@ -14,6 +16,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0px;
+  color: var(--primary-site-color);
 }
 
 h1 {
