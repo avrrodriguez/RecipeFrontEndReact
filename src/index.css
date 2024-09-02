@@ -52,6 +52,14 @@ p {
   font-size: var(--text-font-size);
 }
 
+body {
+  margin: 0px;
+}
+
+footer {
+  height: 6.8vh;
+}
+
 .site-button {
   background-color: white;
   padding: 10px 15px;
@@ -66,10 +74,41 @@ p {
   background-image: radial-gradient(ellipse, white 65%, #ec8cff);
 }
 
-body {
-  margin: 0px;
+.form-inputs {
+  position: relative;
 }
 
-footer {
-  height: 6.8vh;
+.invalid-input {
+  box-shadow: 0px 0px 3px 2px #B00020;
+}
+
+.invalid-input-text {
+  color: #B00020;
+
+  position: absolute;
+  bottom: 50px;
+  left: 15px;
+}
+
+.invalid-input-animation {
+  animation-name: shake;
+  animation-duration: 0.1s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0.7em);
+  }
+
+  25% {
+    transform: translate(0em);
+  }
+
+  75% {
+    transform: translate(-0.7em);
+  }
+
+  100% {
+    transform: translate(0em);
+  }
 }

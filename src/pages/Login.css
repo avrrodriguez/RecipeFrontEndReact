@@ -1,5 +1,9 @@
 @import url("../SiteColors.css");
 
+.content-container {
+    margin-left: 25px;
+}
+
 .login-form {
     width: 100%;
     height: 100%;
@@ -15,13 +19,60 @@
 .cat-container {
     background-color: var(--secondary-site-color);
 
-    width: 60%;
-    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90%;
+    max-width: 700px;
+    height: 400px;
+    margin-top: 100px;
+
+    border-radius: 5em;
+
+    position: relative;
+}
+
+.cat-ears {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    position: absolute;
+    top: -100px;
+
+    width: 100%;
+    height: 100px;
+}
+
+.left-cat-ear {
+    height: 0;
+    width: 0;
+
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid var(--secondary-site-color);
+
+    position: relative;
+    bottom: -1px;
+}
+
+.right-cat-ear {
+    width: 0;
+    height: 0;
+
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid var(--secondary-site-color);
+
+    position: relative;
+    bottom: -1px;
 }
 
 .login-form > div {
     display: flex;
     flex-direction: row;
+    gap: 25px;
 }
 
 .login-form > input {
