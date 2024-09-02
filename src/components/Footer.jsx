@@ -1,9 +1,9 @@
-import "./Footer.css"
+import "./Footer.css";
 
 export function Footer() {
-    return (
-        <footer>
-            <p>Copyright 2024</p>
-        </footer>
-    )
+  return (
+    <footer>
+      <p>Copywrong 2024</p>
+    </footer>
+  );
 }
