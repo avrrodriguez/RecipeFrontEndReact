@@ -1,7 +1,7 @@
 @import url("../SiteColors.css");
 
 .content-container {
-    margin-left: 25px;
+    margin-left: 22px;
 }
 
 .login-form {
@@ -67,6 +67,24 @@
 
     position: relative;
     bottom: -1px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .cat-ears {
+        display: flex;
+        justify-content: center;
+        gap: 15vw;
+    }
+
+    .left-cat-ear {
+        border-left: 6vw solid transparent;
+        border-right: 6vw solid transparent;
+    }
+
+    .right-cat-ear {
+        border-left: 6vw solid transparent;
+        border-right: 6vw solid transparent;
+    }
 }
 
 .login-form > div {
