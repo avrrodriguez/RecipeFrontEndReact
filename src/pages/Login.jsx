@@ -12,7 +12,7 @@ export function Login(props) {
     axios
       .post("http://localhost:3000/login", params)
       .then((response) => {
-        console.log("response", response.data);
+        localStorage.setItem("user_token", response.data.data.token);
       })
       .catch((error) => {
         setInvalidInput(true);
